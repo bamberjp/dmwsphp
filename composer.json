@@ -1,0 +1,20 @@
+{
+    "name": "bamberjp/dmwsphp",
+    "description": "DMWS-PHP is a library that aims to simplify the use of the Digital Measures Web Services Platform for PHP Developers.",
+	"license": "MIT",
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "nategood/httpful": "0.2.20"
+    },
+	"authors": [
+		{
+			"name": "Johnathan Bamber",
+			"email": "bamberjp@gmail.com",
+		}
+	],
+	"autoload": {
+        "psr-0": {
+            "DWMSPHP": "src/"
+        }
+    },
+}
