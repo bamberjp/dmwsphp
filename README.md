@@ -11,13 +11,13 @@ This library requires the [Httful HTTP Client Library](https://github.com/natego
 ## Setup Connection
 
 ```php
-$conn = new DMAIConnection("[USERNAME]", "[PASSWORD]");
+$conn = new DMWSConnection("[USERNAME]", "[PASSWORD]");
 ```
 
 or to use BETA Environment:
 
 ```php
-$conn = new DMAIConnection("[USERNAME]", "[PASSWORD]", false, true);
+$conn = new DMWSConnection("[USERNAME]", "[PASSWORD]", false, true);
 ```
 # Examples
 
