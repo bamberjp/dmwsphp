@@ -9,7 +9,7 @@
     "authors": [
 	{
 		"name": "Johnathan Bamber",
-		"email": "bamberjp@gmail.com",
+		"email": "bamberjp@gmail.com"
 	}
     ],
     "autoload": {
