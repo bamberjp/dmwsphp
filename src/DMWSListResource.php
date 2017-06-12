@@ -2,11 +2,13 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResource;
+
 /**
   * DMWS List Resource.
   *
   */
-class DMWSListResource implements Iterator {
+class DMWSListResource implements \Iterator {
 	/**
 	  * Array for storing DMWS Resources.
 	  *
@@ -38,7 +40,7 @@ class DMWSListResource implements Iterator {
 	  * @return void
 	  */
 	public function addResource(&$resource) {
-		if (!($resource instanceof DMWSResource)) throw new Exception("Invalid type. Expected DMWSResource as parameter.");
+		if (!($resource instanceof DMWSResource)) throw new \Exception("Invalid type. Expected DMWSResource as parameter.");
 		
 		$this->resources[] = &$resource;
 	}
