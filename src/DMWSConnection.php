@@ -2,6 +2,17 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSIndexEntry;
+use DMWSPHP\DMWSIntellcont;
+use DMWSPHP\DMWSIntellcontAuth;
+use DMWSPHP\DMWSListResource;
+use DMWSPHP\DMWSPCI;
+use DMWSPHP\DMWSSchemaEntityResource;
+use DMWSPHP\DMWSSchemaIndexResource;
+use DMWSPHP\DMWSSchemaResource;
+use DMWSPHP\DMWSUserResource;
+use DMWSPHP\DMWSView;
+
 /**
   * Connection Class for accessing the DMWS REST API.
   *
@@ -58,7 +69,7 @@ class DMWSConnection {
 	  * @return void. If wrong type, throws exception.
 	  */
 	public function useStrict($strict = true) {
-		if (!is_bool($strict)) throw new Exception("Invalid type. Expected boolean as parameter.");
+		if (!is_bool($strict)) throw new \Exception("Invalid type. Expected boolean as parameter.");
 		
 		$this->strict = $strict;
 	}
@@ -92,7 +103,7 @@ class DMWSConnection {
 	  * @return void. If wrong type, throws exception.
 	  */
 	public function useBeta($beta = false) {
-		if (!is_bool($beta)) throw new Exception("Invalid type. Expected boolean as parameter.");
+		if (!is_bool($beta)) throw new \Exception("Invalid type. Expected boolean as parameter.");
 		
 		$this->beta = $beta;
 	}
@@ -112,7 +123,7 @@ class DMWSConnection {
 			/* error message not gzip encoded */
 			$data = $XMLHandler->parse($data);
 			if (isset($data->Message)) {
-				throw new Exception("API Error: " . $data->Message);
+				throw new \Exception("API Error: " . $data->Message);
 			}
 			throw $e;
 		}
@@ -132,7 +143,7 @@ class DMWSConnection {
       if (substr($data, $offset,1) == "\x08")  {
          return gzinflate(substr($data, $offset + 8));
       }
-      throw new Exception("Unsupported Encoding");
+      throw new \Exception("Unsupported Encoding");
     }
 	
 	/**
@@ -151,7 +162,7 @@ class DMWSConnection {
 				->send();
 		
 			return $response->body;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
@@ -171,7 +182,7 @@ class DMWSConnection {
 			}
 			
 			return $ListResource;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
@@ -190,7 +201,7 @@ class DMWSConnection {
 			} else {
 				return false;
 			}
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
@@ -202,8 +213,8 @@ class DMWSConnection {
 	  * @return DMWSListResource of DMWSView. If error, throws Exception.
 	  */
 	public function getSchemaEntities(&$SchemaResource) {
-		if (get_class($SchemaResource) != "DMWSSchemaResource") {
-			throw new Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
 		}
 		
 		try {
@@ -223,7 +234,7 @@ class DMWSConnection {
 			}
 			
 			return $SchemaEntityListResource;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
@@ -241,11 +252,11 @@ class DMWSConnection {
 																(isset($user->MiddleName))?$user->MiddleName:"",
 																(string)$user->LastName,
 																(string)$user->Email,
-																(isset($user->attributes()->enabled)?false:true)));	/* attribute assumed for active accounts */
+																(isset($user->attributes()->enabled)?false:true)));	// attribute assumed for active accounts 
 			}
 			
 			return $ListResource;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
@@ -261,8 +272,8 @@ class DMWSConnection {
 	  * IndexKeyEntryKeys (Default): college, department, username
 	  */
 	public function getSchemaIndices(&$SchemaResource) {
-		if (get_class($SchemaResource) != "DMWSSchemaResource") {
-			throw new Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
 		}
 		
 		try {
@@ -284,14 +295,14 @@ class DMWSConnection {
 																			    $IndexEntries));
 			}
 			return $SchemaIndexResources;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
 	
-	public function getPCI(&$SchemaResource) {
-		if (get_class($SchemaResource) != "DMWSSchemaResource") {
-			throw new Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+	public function getPCI($SchemaResource) {
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");;
 		}
 		
 		try {
@@ -349,14 +360,14 @@ class DMWSConnection {
 					));
 			}
 			return $ListResource;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
 	
 	public function getINTELLCONT($SchemaResource) {
-		if (get_class($SchemaResource) != "DMWSSchemaResource") {
-			throw new Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
 		}
 		
 		try {
@@ -424,7 +435,7 @@ class DMWSConnection {
 			}
 			
 			return $ListResource;
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw $e;
 		}
 	}
