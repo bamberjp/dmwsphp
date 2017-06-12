@@ -2,6 +2,8 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResource;
+
 class DMWSIntellcontAuth implements DMWSResource {
 	private $id;
 	private $faculty_name;
