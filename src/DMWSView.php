@@ -2,6 +2,9 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResource;
+use DMWSPHP\DMWSListResource;
+
 /**
   * DMWS View.
   *
