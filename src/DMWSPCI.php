@@ -2,6 +2,8 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResource;
+
 class DMWSPCI implements DMWSResource {
 	private $userId;
 	private $username;
