@@ -384,7 +384,7 @@ class DMWSPCI implements DMWSResource {
 			   "\tfname: \"" . $this->getFirstName() . "\", \n" . 
 			   "\tpfname: \"" . $this->getPreferredFirstName() . "\", \n" . 
 			   "\tmname: \"" . $this->getMiddleName() . "\", \n" . 
-			   "\tlanme: \"" . $this->getLastName() . "\", \n" . 	
+			   "\tlname: \"" . $this->getLastName() . "\", \n" . 	
 			   "\tsuffix: \"" . $this->getSuffix() . "\", \n" . 			   
 			   "\temail: \"" . $this->getEmail() . "\", \n" . 
 			   "\tbuilding: \"" . $this->getBuilding() . "\", \n" . 	
