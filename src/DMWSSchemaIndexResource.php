@@ -2,6 +2,9 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResourceBase;
+use DMWSPHP\DMWSConnection;
+
 /**
   * DMWS Schema Index Resource.
   *
