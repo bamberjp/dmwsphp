@@ -3,8 +3,8 @@
     "description": "DMWS-PHP is a library that aims to simplify the use of the Digital Measures Web Services Platform for PHP Developers.",
 	"license": "MIT",
     "require": {
-        "php": "^5.3.3 || ^7.0",
-        "nategood/httpful": "0.2.20"
+        "php": ">=5.3",
+        "nategood/httpful": "*"
     },
     "authors": [
 	{
