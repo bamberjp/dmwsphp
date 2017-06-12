@@ -41,7 +41,7 @@ class DMWSSchemaResource extends DMWSResourceBase {
 	}
 	
 	/**
-	  * Get PCI Data Associated with this Schema Resource.
+	  * Get PCI Records Associated with this Schema Resource.
 	  *
 	  * @return DMWSListResource of DMWSPCI Resource
 	  */
