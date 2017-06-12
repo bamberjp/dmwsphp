@@ -2,6 +2,8 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResource;
+
 /**
   * DMWS User Resource.
   *
