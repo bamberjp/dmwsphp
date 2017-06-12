@@ -2,6 +2,8 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSSchemaResource;
+
 class DMWSIntellcont implements DMWSResource {
 	private $id;
 	private $contype; /* CONTYPE & CONTYPEOTHER */
