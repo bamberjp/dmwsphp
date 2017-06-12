@@ -2,6 +2,11 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResourceBase;
+use DMWSPHP\DMWSSchemaResource;
+use DMWSPHP\DMWSConnection;
+use DMWSPHP\DMWSView;
+
 /**
   * DMWS Schema Entity Resource.
   *
