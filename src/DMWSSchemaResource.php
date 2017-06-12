@@ -2,6 +2,9 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResourceBase;
+use DMWSPHP\DMWSConnection;
+
 /**
   * DMWS Schema Resource.
   *
@@ -35,6 +38,15 @@ class DMWSSchemaResource extends DMWSResourceBase {
 	  */	
 	public function getSchemaIndices() {
 		return $this->getConnection()->getSchemaIndices($this);
+	}
+	
+	/**
+	  * Get PCI Data Associated with this Schema Resource.
+	  *
+	  * @return DMWSListResource of DMWSPCI Resource
+	  */
+	public function getPCI() {
+		return $this->getConnection()->getPCI($this);
 	}
 	
 	/**
