@@ -2,6 +2,9 @@
 
 namespace DMWSPHP;
 
+use DMWSPHP\DMWSResource;
+use DMWSPHP\DMWSConnection;
+
 /**
   * Base resource class for data returned from DMWS API.
   *
