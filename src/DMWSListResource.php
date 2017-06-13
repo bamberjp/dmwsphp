@@ -39,7 +39,7 @@ class DMWSListResource implements \Iterator {
 	  * @param DMWSResource $resource Reference to a DMWSResource. Throws Exception if invalid type.
 	  * @return void
 	  */
-	public function addResource(&$resource) {
+	public function addResource($resource) {
 		if (!($resource instanceof DMWSResource)) throw new \Exception("Invalid type. Expected DMWSResource as parameter.");
 		
 		$this->resources[] = &$resource;
