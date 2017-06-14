@@ -50,6 +50,15 @@ class DMWSSchemaResource extends DMWSResourceBase {
 	}
 	
 	/**
+	  * Get IntellCont Data Associated with this Schema Resource.
+	  *
+	  * @return DMWSListResource of DMWSIntellCont Resource
+	  */
+	public function getIntellcont() {
+		return $this->getConnection()->getIntellcont($this);
+	}
+	
+	/**
 	  * toString function
 	  *
 	  * @return string
