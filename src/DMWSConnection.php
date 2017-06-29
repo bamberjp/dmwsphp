@@ -102,7 +102,7 @@ class DMWSConnection {
 	
 	/**
 	  * Sets if BETA or Production URL will be used for REST Calls.
-	  
+	  *
 	  * @param boolean $beta If true, BETA URL is used. Default false.
 	  * @return void. If wrong type, throws exception.
 	  */
