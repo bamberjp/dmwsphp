@@ -1,5 +1,5 @@
 # DMWSPHP
-DMWS-PHP is a library that aims to simplify the use of the Digital Measures Web Services Platform for PHP Developers. This project is currently under development and can not perform all available operations available via the REST API.
+DMWS-PHP is a library that aims to simplify the use of the Digital Measures Web Services Platform for PHP Developers. This project is currently under development and can not perform all operations available via the REST API.
 
 Project sponsored by the Feliciano School of Business.
 
