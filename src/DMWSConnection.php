@@ -12,6 +12,10 @@ use DMWSPHP\DMWSSchemaIndexResource;
 use DMWSPHP\DMWSSchemaResource;
 use DMWSPHP\DMWSUserResource;
 use DMWSPHP\DMWSView;
+use DMWSPHP\DMWSEducation;
+use DMWSPHP\DMWSAward;
+use DMWSPHP\DMWSResearch;
+
 
 /**
   * Connection Class for accessing the DMWS REST API.
@@ -430,6 +434,119 @@ class DMWSConnection {
 						(string)$Intellcont->PUB_START,
 						(string)$Intellcont->PUB_END,
 						(string)$Intellcont->USER_REFERENCE_CREATOR
+					));
+				}
+			}
+			
+			return $ListResource;
+		} catch (\Exception $e) {
+			throw $e;
+		}
+	}
+	
+	public function getEducation($SchemaResource) {
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+		}
+		
+		try {
+			$data = $this->_call($this->getBaseURL() . "SchemaData/" . $SchemaResource->getKey() . "/EDUCATION"); 
+			
+			$ListResource = new DMWSListResource();
+			
+			foreach ($data->Record as $Record) {
+				$userId = (string)$Record->attributes()->userId;
+				$username = (string)$Record->attributes()->username;
+				$termId = (string)$Record->attributes()->termId;
+				
+				foreach ($Record->EDUCATION as $Education) {
+					$ListResource->addResource(new DMWSEducation(
+						$userId,
+						$username,
+						$termId,
+						(string)$Education->attributes()->id,
+						((string)$Education->DEG == "Other"?(string)$Education->DEGOTHER:(string)$Education->DEG),
+						(string)$Education->SCHOOL,
+						(string)$Education->SCHOOL_LOC,
+						(string)$Education->MAJOR,
+						(string)$Education->SUPPAREA,
+						(string)$Education->DISTTILE,
+						(string)$Education->HIGHEST,
+						(string)$Education->YR_COMP,
+						(string)$Education->COMP_START,
+						(string)$Education->COMP_END
+					));
+				}
+			}
+			
+			return $ListResource;
+		} catch (\Exception $e) {
+			throw $e;
+		}
+	}
+	
+	public function getResearch($SchemaResource) {
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+		}
+		
+		try {
+			$data = $this->_call($this->getBaseURL() . "SchemaData/" . $SchemaResource->getKey() . "/RESPROG"); 
+			
+			$ListResource = new DMWSListResource();
+			
+			foreach ($data->Record as $Record) {
+				$userId = (string)$Record->attributes()->userId;
+				$username = (string)$Record->attributes()->username;
+				$termId = (string)$Record->attributes()->termId;
+				
+				foreach ($Record->RESPROG as $Research) {
+					$ListResource->addResource(new DMWSResearch(
+							$userId,
+							$username,
+							$termId,
+							(string)$Research->attributes()->id,
+							(string)$Research->DESC
+					));
+				}
+			}
+			
+			return $ListResource;
+		} catch (\Exception $e) {
+			throw $e;
+		}
+	}
+	
+	public function getAwards($SchemaResource) {
+		if (get_class($SchemaResource) != "DMWSPHP\DMWSSchemaResource") {
+			throw new \Exception("Invalid type. Expected DMWSSchemaResource as parameter.");
+		}
+		
+		try {
+			$data = $this->_call($this->getBaseURL() . "SchemaData/" . $SchemaResource->getKey() . "/AWARDHONOR"); 
+			
+			$ListResource = new DMWSListResource();
+			
+			foreach ($data->Record as $Record) {
+				$userId = (string)$Record->attributes()->userId;
+				$username = (string)$Record->attributes()->username;
+				$termId = (string)$Record->attributes()->termId;
+				
+				foreach ($Record->AWARDHONOR as $Award) {
+					$ListResource->addResource(new DMWSAward(
+							$userId,
+							$username,
+							$termId,
+							(string)$Award->attributes()->id,
+							(string)$Award->NAME,
+							(string)$Award->ORG,
+							(string)$Award->SCOPE,
+							(string)$Award->DTM_DATE,
+							(string)$Award->DTD_DATE,
+							(string)$Award->DTY_DATE,
+							(string)$Award->DATE_START,
+							(string)$Award->DATE_END,
+							(string)$Award->DESC
 					));
 				}
 			}

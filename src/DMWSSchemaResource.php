@@ -58,6 +58,18 @@ class DMWSSchemaResource extends DMWSResourceBase {
 		return $this->getConnection()->getIntellcont($this);
 	}
 	
+	public function getEducation() {
+		return $this->getConnection()->getEducation($this);
+	}
+	
+	public function getResearch() {
+		return $this->getConnection()->getResearch($this);
+	}
+	
+	public function getAwards() {
+		return $this->getConnection()->getAwards($this);	
+	}
+	
 	/**
 	  * toString function
 	  *
