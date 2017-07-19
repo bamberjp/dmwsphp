@@ -34,7 +34,7 @@ class DMWSAward implements DMWSResource {
 								$desc) {
 		$this->userId = $userId;
 		$this->username = $username;
-		$this->termid = $termid;
+		$this->termId = $termId;
 		$this->id = $id;
 		$this->name = $name;
 		$this->org = $org;
