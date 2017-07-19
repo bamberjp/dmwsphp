@@ -18,7 +18,7 @@ class DMWSResearch implements DMWSResource {
 								$desc) {
 		$this->userId = $userId;
 		$this->username = $username;
-		$this->termid = $termid;
+		$this->termId = $termId;
 		$this->id = $id;
 		$this->desc = $desc;
 	}
