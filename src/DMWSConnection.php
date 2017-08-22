@@ -403,7 +403,6 @@ class DMWSConnection {
 						(string)$Intellcont->TITLE,
 						(string)$Intellcont->PUBLISHER,
 						(string)$Intellcont->PUBCTYST,
-						(string)$Intellcont->PUBCTYST,
 						(string)$Intellcont->PUBCNTRY,
 						(string)$Intellcont->VOLUME,
 						(string)$Intellcont->ISSUE,
