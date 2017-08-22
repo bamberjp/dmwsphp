@@ -114,6 +114,9 @@ try {
 	print $e;
 }
 ```
+## Changelog
+
+08.22.2017 Removed bad argument in function getINTELLCONT() in DMWSConnection.
 
 ## Support
 
